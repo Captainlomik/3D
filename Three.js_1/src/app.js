@@ -174,9 +174,6 @@ mesh.add( rootBone );
 mesh.bind( skeleton );
 
 
-//Shadow
-//  mesh.receiveShadow = true
-//  mesh.castShadow = true
 
 
 let sk = new THREE.SkeletonHelper(mesh)
@@ -203,10 +200,6 @@ const opcaityClip1 = new AnimationClip('move11', -1, [positionFK])
 const mixer1 = new AnimationMixer(mesh)
  mixer1.clipAction(opcaityClip1).play()
 
-//  const updateAmount = 3
-// //  mixer2.update(updateAmount)
-// mesh.castShadow = true
-// console.log(mesh.animations)
 scene.add(sk)
 scene.add(mesh)
 
@@ -237,7 +230,6 @@ const springMesh = new THREE.SkinnedMesh(
     springGeometry, 
     new THREE.MeshStandardMaterial({
         skinning:true,
-        //wireframe:true,
     }))
 
 
