@@ -1,0 +1,18 @@
+*{
+    margin:0; 
+    padding:0;
+    box-sizing: border-box;
+   
+}
+
+body{
+    width: 99vw;
+    height: 99vh;
+    overflow:hidden;
+}
+canvas{
+  
+    width: 99vw;
+    height: 99vh;
+    background:linear-gradient(135deg, lightblue, #f9d0d3);;
+}
