@@ -132,9 +132,10 @@ function createcub(material = 0, randomNum2 = 0) {
     )
     cube.position.set(Math.sin(randomNum2) , Math.cos(randomNum2), randomNum2)
     scene.add(cube)
+    cube.add( sound2 );
 
 }
-createcub()
+
 
 /**
  * Light
@@ -253,6 +254,23 @@ raycaster = new THREE.Raycaster();
 renderer.domElement.addEventListener('click', raycast, false);
 
 
+const listener2 = new THREE.AudioListener();
+camera.add( listener2 );
+
+// create the PositionalAudio object (passing in the listener)
+const sound2 = new THREE.PositionalAudio( listener2 );
+
+// load a sound and set it as the PositionalAudio object's buffer
+const audioLoader2 = new THREE.AudioLoader();
+audioLoader2.load( '/sound/hit.mp3', function( buffer ) {
+	sound2.setBuffer( buffer );
+	sound2.setRefDistance( 20 );
+	//sound2.play();
+});
+
+// finally add the sound to the mesh
+
+
 
 function raycast(e) {
 
@@ -265,19 +283,19 @@ function raycast(e) {
     let intersects = raycaster.intersectObjects(scene.children);
 
     let randomNum = Math.floor(Math.random() * (10 - 0 + 1)) + 0;
-    let randomNum2 = Math.random() * 10 -1
+    let randomNum2 = Math.random() * 10 -1 
     createcub(randomNum, randomNum2)
 
-
     console.log('num'+randomNum)
-    // for (let i = 0; i < intersects.length; i++) {
+    sound2.play()
+    for (let i = 0; i < intersects.length; i++) {
 
-    //     //intersects[ i ].object.material.color.set( 0x00ff00 )
-    //     console.log(randomNum)
-    // }
+        //intersects[ i ].object.material.color.set( 0x00ff00 )
+        console.log(randomNum)
+    }
 
 }
-
+createcub()
 
 /**
  * Animate
