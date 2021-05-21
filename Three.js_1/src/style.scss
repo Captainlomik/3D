@@ -14,5 +14,8 @@ canvas{
   
     width: 99vw;
     height: 99vh;
-    background:linear-gradient(135deg, lightblue, #f9d0d3);;
+    background:linear-gradient(135deg, lightblue, #f9d0d3);
+}
+button{
+    z-index: 10;
 }
