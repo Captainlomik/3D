@@ -97,7 +97,8 @@ scene.fog = new THREE.Fog('black', 10, 20);
 function createcub(material = 0, randomNum2 = 0) {
     let materials = [
         new THREE.LineBasicMaterial({
-            color: 'red'
+            color: 'pink', 
+            linecap:'square'
         }),
         new THREE.PointsMaterial({
             color: 'blue'
@@ -106,7 +107,8 @@ function createcub(material = 0, randomNum2 = 0) {
             color: 'green'
         }),
         new THREE.MeshStandardMaterial({
-            color: 'black'
+            color: 'black', 
+            metalness:1
         }),
         new THREE.MeshBasicMaterial({
             color: 'lightblue'
@@ -122,7 +124,7 @@ function createcub(material = 0, randomNum2 = 0) {
         }),
         new THREE.ShaderMaterial(),
         new THREE.MeshPhysicalMaterial({
-            roughness:2,
+            roughness:1,
         }),
         new THREE.ShadowMaterial()
     ]
@@ -130,7 +132,7 @@ function createcub(material = 0, randomNum2 = 0) {
         new THREE.BoxGeometry(1),
         materials[material]
     )
-    cube.position.set(Math.sin(randomNum2) , Math.cos(randomNum2), randomNum2)
+    cube.position.set(Math.sin(randomNum2)+4, Math.cos(randomNum2), randomNum2)
     scene.add(cube)
     cube.add( sound2 );
 
@@ -251,7 +253,7 @@ var raycaster, mouse = {
     y: 0
 };
 raycaster = new THREE.Raycaster();
-renderer.domElement.addEventListener('click', raycast, false);
+renderer.domElement.addEventListener('dblclick', raycast, false);
 
 
 const listener2 = new THREE.AudioListener();
